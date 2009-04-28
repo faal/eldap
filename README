@@ -13,6 +13,12 @@ To just use eldap for doing authentication, do like in:
  {ok,X} = eldap:open(["ldap.mycorp.com"], []).
  eldap:simple_bind(X, "uid=tobbe,ou=People,dc=mycorp,dc=com", "passwd").
 
+If you want to bind anonymously do:
+
+ {ok,X} = eldap:open(["ldap.mycorp.com"], [{anon_auth, true}]).
+ eldap:simple_bind(X, "", "").
+ 
+ 
 In the doc/README.example you'll find a trace from a
 Erlang shell session as an example on how to setup a
 connection, authenticate (bind) and perform a search.
