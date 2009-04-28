@@ -326,7 +326,7 @@ parse_args([{port, Port}|T], Cpid, Data) when integer(Port) ->
 parse_args([{timeout, Timeout}|T], Cpid, Data) when integer(Timeout),Timeout>0 ->
     parse_args(T, Cpid, Data#eldap{timeout = Timeout});
 parse_args([{anon_auth, true}|T], Cpid, Data) ->
-    parse_args(T, Cpid, Data#eldap{anon_auth = false});
+    parse_args(T, Cpid, Data#eldap{anon_auth = true});
 parse_args([{anon_auth, _}|T], Cpid, Data) ->
     parse_args(T, Cpid, Data);
 parse_args([{ssl, true}|T], Cpid, Data) ->
